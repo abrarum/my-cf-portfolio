@@ -1,6 +1,9 @@
 .next/
+.open-next/
+.wrangler/
 node_modules/
 .env*
 !.env.example
 .DS_Store
 npm-debug.log*
+worker-configuration.d.ts
