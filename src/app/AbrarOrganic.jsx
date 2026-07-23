@@ -323,7 +323,7 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
         </div>
       </nav>
 
-      {/* HERO + VIDEO - side by side */}
+      {/* HERO - introduction + engineering lens */}
       <section
         style={{
           position: "relative",
@@ -379,7 +379,7 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
             </FadeIn>
           </div>
 
-          {/* Right - video */}
+          {/* Right - engineering lens */}
           <FadeIn delay={0.18} style={{ order: isTablet ? 1 : 2 }}>
             <div style={{ position: "relative" }}>
               <div
@@ -392,14 +392,98 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
                 }}
               />
 
-              <div style={{ position: "relative", paddingBottom: "56.25%", borderRadius: 20, overflow: "hidden", boxShadow: "0 28px 70px rgba(102,0,51,0.18), 0 6px 18px rgba(0,0,0,0.09)" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/Iwu7pIEBjW8?rel=0&modestbranding=1"
-                  title="How Abrar Can Help You"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
+              <div
+                style={{
+                  position: "relative",
+                  borderRadius: 24,
+                  overflow: "hidden",
+                  background: B.ink,
+                  boxShadow: "0 28px 70px rgba(102,0,51,0.18), 0 6px 18px rgba(0,0,0,0.09)",
+                  padding: "clamp(28px,4vw,48px)",
+                }}
+              >
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    width: "70%",
+                    aspectRatio: "1",
+                    top: "-38%",
+                    right: "-24%",
+                    borderRadius: "50%",
+                    background: `radial-gradient(circle, ${B.primary}80 0%, transparent 68%)`,
+                  }}
                 />
+                <p style={{ position: "relative", fontSize: 10, letterSpacing: "0.24em", textTransform: "uppercase", color: B.gold, fontWeight: 700, marginBottom: 18 }}>
+                  Engineering lens
+                </p>
+                <h2 style={{ position: "relative", fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(24px,2.6vw,38px)", lineHeight: 1.14, color: B.white, letterSpacing: "-0.02em", marginBottom: "clamp(28px,3.5vw,42px)", maxWidth: 430 }}>
+                  Good systems make the difficult parts visible.
+                </h2>
+
+                <div style={{ position: "relative", display: "grid", gap: 0 }}>
+                  {[
+                    {
+                      no: "01",
+                      title: "Clarify the constraint",
+                      desc: "Turn an ambiguous requirement into a testable system boundary.",
+                    },
+                    {
+                      no: "02",
+                      title: "Choose deliberately",
+                      desc: "Make trade-offs explicit across reliability, speed, and maintainability.",
+                    },
+                    {
+                      no: "03",
+                      title: "Prove the outcome",
+                      desc: "Ship working software, observe it, and let evidence guide the next decision.",
+                    },
+                  ].map((item, index) => (
+                    <div
+                      key={item.no}
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "36px 1fr",
+                        gap: 14,
+                        padding: "clamp(15px,2vw,21px) 0",
+                        borderTop: index === 0 ? "1px solid rgba(255,255,255,0.16)" : "none",
+                        borderBottom: "1px solid rgba(255,255,255,0.16)",
+                      }}
+                    >
+                      <span style={{ color: B.gold, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", paddingTop: 3 }}>
+                        {item.no}
+                      </span>
+                      <div>
+                        <h3 style={{ color: B.white, fontSize: 14, fontWeight: 700, marginBottom: 5, letterSpacing: "0.01em" }}>
+                          {item.title}
+                        </h3>
+                        <p style={{ color: "rgba(255,255,255,0.62)", fontSize: 13, lineHeight: 1.55 }}>
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ position: "relative", display: "flex", flexWrap: "wrap", gap: 8, marginTop: 24 }}>
+                  {["AI systems", "Full-stack products", "Architecture"].map((label) => (
+                    <span
+                      key={label}
+                      style={{
+                        border: "1px solid rgba(255,255,255,0.14)",
+                        borderRadius: 50,
+                        color: "rgba(255,255,255,0.68)",
+                        fontSize: 10,
+                        fontWeight: 600,
+                        letterSpacing: "0.08em",
+                        padding: "7px 11px",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </FadeIn>
