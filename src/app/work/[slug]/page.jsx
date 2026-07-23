@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import PortfolioFooter from "@/components/PortfolioFooter"
 import PortfolioHeader from "@/components/PortfolioHeader"
 import { getWorkBySlug, WORK } from "@/lib/work"
+import { getWorkGallery } from "@/lib/workMedia"
 
 export function generateStaticParams() {
   return WORK.map((study) => ({ slug: study.slug }))
@@ -47,6 +48,7 @@ export default async function WorkDetailPage({ params }) {
 
   const currentIndex = WORK.findIndex((item) => item.slug === study.slug)
   const nextStudy = WORK[(currentIndex + 1) % WORK.length]
+  const gallery = getWorkGallery(study.slug)
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -127,6 +129,41 @@ export default async function WorkDetailPage({ params }) {
               ))}
             </section>
           </div>
+
+          {gallery && (
+            <section className="work-gallery" aria-labelledby="work-gallery-title">
+              <div className="work-gallery-heading">
+                <div>
+                  <p className="portfolio-eyebrow">{gallery.eyebrow}</p>
+                  <h2 id="work-gallery-title">{gallery.title}</h2>
+                </div>
+                <p>{gallery.description}</p>
+              </div>
+              <div
+                className="work-gallery-track"
+                tabIndex="0"
+                aria-label={`${gallery.title} screenshot gallery`}
+              >
+                {gallery.screenshots.map((screenshot, index) => (
+                  <figure className="work-gallery-card" key={screenshot.src}>
+                    <div className="work-gallery-image">
+                      <Image
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        fill
+                        sizes="(max-width: 720px) 88vw, 720px"
+                        unoptimized
+                      />
+                    </div>
+                    <figcaption>
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <strong>{screenshot.title}</strong>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section className="decision-trail">
             <div className="decision-trail-intro">
