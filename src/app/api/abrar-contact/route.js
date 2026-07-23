@@ -44,7 +44,7 @@ export async function POST(request) {
 
         const mailOptions = {
             from: process.env.EMAIL_FROM,
-            to: process.env.EMAIL_TO || 'info@aifantry.com',
+            to: process.env.EMAIL_TO || process.env.EMAIL_USER,
             subject: emailSubject,
             replyTo: email,
             text: textParts.join('\n\n'),

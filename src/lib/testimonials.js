@@ -3,7 +3,7 @@
  *
  * Each entry has:
  *  - abrarQuote  : version directed at Abrar personally (for /abrar)
- *  - companyQuote: version directed at AIfantry as a company (for / root)
+ *  - companyQuote: team-oriented alternative when a personal quote is not appropriate
  *  - clientName  : real client first+last name
  *  - company     : client's company name
  *  - projectLabel: short label describing the engagement

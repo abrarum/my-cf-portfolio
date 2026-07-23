@@ -1,14 +1,17 @@
 import AbrarOrganic from "./AbrarOrganic"
-import { FEATURED_CASE_STUDIES } from "@/lib/featuredCaseStudies"
+import { FEATURED_CASE_STUDIES } from "@/lib/work"
 
 export const metadata = {
-  title: "Abrar Ahmed | Work Directly With an AI Engineer",
+  title: "Abrar Ahmed | AI and Full-stack Engineer",
   description:
-    "Work directly with Abrar Ahmed, hands-on AI engineer and founder of AIfantry. No middlemen.",
+    "Portfolio of Abrar Ahmed, an AI and full-stack engineer building production systems across commerce, fintech, and regulated platforms.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Abrar Ahmed | Work Directly With an AI Engineer",
+    title: "Abrar Ahmed | AI and Full-stack Engineer",
     description:
-      "Skip the agency. Work directly with the founder. Real AI shipped for real businesses.",
+      "Selected engineering work, decisions, and outcomes from production AI, mobile, and platform systems.",
     type: "website",
   },
 }

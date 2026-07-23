@@ -1,6 +1,6 @@
-# My CF Portfolio
+# HeyAbrar portfolio
 
-Abrar Ahmed's standalone AI engineering portfolio and lead-generation landing page.
+Abrar Ahmed's standalone AI and full-stack engineering portfolio.
 
 ## Development
 
@@ -16,7 +16,7 @@ Open `http://localhost:3000`.
 ## Contact form
 
 Copy `.env.example` to `.env.local` and provide SMTP credentials.
-The contact endpoint sends submissions to `EMAIL_TO`, which defaults to `info@aifantry.com`.
+The contact endpoint sends submissions to `EMAIL_TO`, or to `EMAIL_USER` when a separate recipient is not configured.
 
 ## Validation
 

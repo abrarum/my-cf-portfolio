@@ -9,9 +9,25 @@ const nord = localFont({
 })
 
 export const metadata = {
-  title: "Abrar Ahmed | AI Engineer",
+  metadataBase: new URL("https://heyabrar.com"),
+  title: {
+    default: "Abrar Ahmed | AI and Full-stack Engineer",
+    template: "%s",
+  },
   description:
-    "Work directly with Abrar Ahmed, a hands-on AI engineer delivering production AI systems for businesses.",
+    "Portfolio of Abrar Ahmed, an AI and full-stack engineer focused on production systems and thoughtful technical decisions.",
+  applicationName: "Abrar Ahmed Portfolio",
+  authors: [{ name: "Abrar Ahmed", url: "https://heyabrar.com" }],
+  creator: "Abrar Ahmed",
+  publisher: "Abrar Ahmed",
+  openGraph: {
+    siteName: "Abrar Ahmed",
+    url: "https://heyabrar.com",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 }
 
 export default function RootLayout({ children }) {

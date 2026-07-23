@@ -4,5 +4,7 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
+    sitemap: "https://heyabrar.com/sitemap.xml",
+    host: "https://heyabrar.com",
   }
 }

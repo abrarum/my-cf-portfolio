@@ -5,9 +5,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { TESTIMONIALS } from "@/lib/testimonials"
 import { SERVICES } from "@/lib/services"
-import CalButton from "@/components/CalButton"
-import CalInline from "@/components/CalInline"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
 // ─── Brand + Palette ──────────────────────────────────────────────────────────
 const B = {
@@ -177,7 +174,6 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
   }, [])
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" })
   const [formStatus, setFormStatus] = useState(null)
-  const [showBookingModal, setShowBookingModal] = useState(false)
   const [leadForm, setLeadForm] = useState({ email: "", idea: "", users: "", budget: "", features: "" })
   const [leadStatus, setLeadStatus] = useState(null)
   const [wizardStep, setWizardStep] = useState(1)
@@ -262,7 +258,6 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
       if (res.ok) {
         if (typeof window !== "undefined" && window.fbq) window.fbq("track", "Lead");
         setForm({ firstName: "", lastName: "", email: "", message: "" })
-        setShowBookingModal(true)
       }
     } catch {
       setFormStatus("error")
@@ -293,22 +288,20 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
         }}
       >
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
-          <Image
-            src="/aifantry-logos/symbols/aifantry-symbol.webp"
-            alt=""
+          <span
             aria-hidden="true"
-            width={28}
-            height={28}
-            style={{ height: 28, width: 28, objectFit: "contain" }}
-          />
-          <span style={{ fontFamily: "var(--font-nord), system-ui, sans-serif", fontSize: 22, fontWeight: 700, color: B.primary, letterSpacing: "-0.01em", lineHeight: 1 }}>aifantry</span>
+            style={{ width: 32, height: 32, display: "grid", placeItems: "center", borderRadius: "50%", background: B.primary, color: B.white, fontSize: 9, fontWeight: 800, letterSpacing: "0.10em" }}
+          >
+            AA
+          </span>
+          <span style={{ fontFamily: SERIF, fontSize: 20, fontWeight: 400, color: B.ink, letterSpacing: "-0.01em", lineHeight: 1 }}>Abrar Ahmed</span>
         </Link>
         <div style={{ display: "flex", gap: isTablet ? 10 : "clamp(14px,1.8vw,26px)", alignItems: "center", flexWrap: "wrap", width: isTablet ? "100%" : "auto" }}>
           {[
             { label: "Process",      href: "#process" },
             { label: "Services",     href: "#services" },
-            { label: "Case Studies", href: "#case-studies" },
-            { label: "Testimonials", href: "#reviews" },
+            { label: "Selected Work", href: "#case-studies" },
+            { label: "References", href: "#reviews" },
             { label: "Contact",      href: "#contact" },
           ].map(({ label, href }) => (
             <a key={label} href={href} onClick={(e) => handleSectionNav(e, href)} style={{ fontSize: isMobile ? 11 : 12, letterSpacing: "0.08em", textTransform: "uppercase", color: B.muted, textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap" }}>
@@ -316,13 +309,15 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
             </a>
           ))}
           <div style={{ display: "flex", gap: 6, alignItems: "center", width: isMobile ? "100%" : "auto" }}>
-            <CalButton
+            <a
+              href="#contact"
+              onClick={(e) => handleSectionNav(e, "#contact")}
               style={{ display: "inline-flex", justifyContent: "center", width: isMobile ? "100%" : "auto", background: B.primary, color: B.white, padding: isTablet ? "10px 18px" : "9px 22px", borderRadius: 50, fontSize: 13, letterSpacing: "0.07em", textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap", transition: "transform 0.2s ease, box-shadow 0.2s ease", border: "none", cursor: "pointer" }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 18px rgba(102,0,51,0.35)" }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none" }}
             >
-              Book a Call →
-            </CalButton>
+              Contact me →
+            </a>
 
           </div>
         </div>
@@ -357,28 +352,28 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
           <div style={{ order: isTablet ? 2 : 1 }}>
             <FadeIn delay={0.00}>
               <h1 style={{ fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(34px,3.8vw,60px)", lineHeight: 1.1, color: B.ink, letterSpacing: "-0.025em", marginBottom: "clamp(20px,2.8vw,32px)" }}>
-                The AI engineer who turns your{" "}
-                <em style={{ color: B.primary, fontStyle: "italic" }}>toughest problem</em>
-                {" "}into a working system.
+                I turn difficult product requirements into{" "}
+                <em style={{ color: B.primary, fontStyle: "italic" }}>dependable systems.</em>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.12}>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexDirection: isMobile ? "column" : "row", alignItems: isMobile ? "stretch" : "center" }}>
-                <CalButton
+                <Link
+                  href="/work"
                   style={{ display: "inline-flex", justifyContent: "center", width: isMobile ? "100%" : "auto", background: B.primary, color: B.white, padding: "14px 30px", borderRadius: 50, fontSize: 14, fontWeight: 600, textDecoration: "none", letterSpacing: "0.04em", transition: "transform 0.2s ease, box-shadow 0.2s ease", border: "none", cursor: "pointer" }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(102,0,51,0.35)" }}
                   onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none" }}
                 >
-                  Book a Free Call →
-                </CalButton>
+                  View selected work →
+                </Link>
                 <a
                   href="#contact"
                   style={{ display: "inline-flex", justifyContent: "center", width: isMobile ? "100%" : "auto", background: "transparent", color: B.ink, padding: "14px 30px", borderRadius: 50, fontSize: 14, fontWeight: 600, textDecoration: "none", letterSpacing: "0.04em", border: "1.5px solid rgba(26,23,20,0.18)", transition: "transform 0.2s ease, background 0.2s ease" }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.background = "rgba(26,23,20,0.06)" }}
                   onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.background = "transparent" }}
                 >
-                  Send a Message
+                  Contact me
                 </a>
               </div>
             </FadeIn>
@@ -599,10 +594,10 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
           <BlobGold style={{ position: "absolute", top: "-12%", right: "-6%", width: "clamp(280px,34vw,460px)", pointerEvents: "none" }} />
           <FadeIn>
             <p style={{ fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: B.primary, fontWeight: 700, marginBottom: 12 }}>
-              Case Studies
+              Selected Work
             </p>
             <h2 style={{ fontFamily: SERIF, fontSize: "clamp(26px,3.8vw,48px)", fontWeight: 400, letterSpacing: "-0.022em", lineHeight: 1.15, color: B.ink, marginBottom: "clamp(40px,5.5vw,72px)", maxWidth: 500 }}>
-              Real problems.<br />Published outcomes.
+              The constraints, decisions,<br />and outcomes behind the work.
             </h2>
           </FadeIn>
 
@@ -710,8 +705,8 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
 
           <FadeIn delay={0.18}>
             <div style={{ display: "flex", justifyContent: "center", marginTop: "clamp(28px,4vw,40px)", position: "relative", zIndex: 1 }}>
-              <a
-                href="https://aifantry.com/case-studies"
+              <Link
+                href="/work"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -739,8 +734,8 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
                   e.currentTarget.style.background = B.primary
                 }}
               >
-                See all case studies →
-              </a>
+                See all selected work →
+              </Link>
             </div>
           </FadeIn>
         </section>
@@ -1055,7 +1050,7 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
                           />
                         </div>
                         {leadStatus === "error" && (
-                          <p style={{ fontSize: 13, color: B.primary, marginTop: 10 }}>Something went wrong - email me at abrar@aifantry.com</p>
+                          <p style={{ fontSize: 13, color: B.primary, marginTop: 10 }}>Something went wrong. Please use the contact form below.</p>
                         )}
                         <div style={{ marginTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                           <button
@@ -1137,24 +1132,9 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
               {formStatus === "success" ? (
                 <div style={{ padding: "12px 0", textAlign: "center" }}>
                   <div style={{ fontFamily: SERIF, fontSize: 20, color: B.gold, fontStyle: "italic", marginBottom: 6 }}>Message sent.</div>
-
-                  <button
-                    type="button"
-                    onClick={() => setShowBookingModal(true)}
-                    style={{
-                      background: "transparent",
-                      color: B.gold,
-                      padding: "0 0 2px",
-                      border: "none",
-                      borderBottom: `1px solid ${B.gold}`,
-                      fontSize: 13,
-                      fontWeight: 700,
-                      cursor: "pointer",
-                      letterSpacing: "0.04em",
-                    }}
-                  >
-                    Reopen booking calendar
-                  </button>
+                  <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 14, lineHeight: 1.6 }}>
+                    Thanks for reaching out. I&apos;ll get back to you soon.
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -1183,52 +1163,10 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
         </div>
       </section>
 
-      <Dialog open={showBookingModal} onOpenChange={setShowBookingModal}>
-        <DialogContent
-          className="max-h-[90vh] overflow-y-auto border-0 p-0 shadow-2xl sm:max-w-4xl"
-          style={{ background: B.cream, borderRadius: 28 }}
-        >
-          <div style={{ padding: "clamp(24px,3.6vw,36px)" }}>
-            <DialogHeader className="text-left">
-              <DialogTitle
-                style={{
-                  fontFamily: SERIF,
-                  fontSize: "clamp(32px,4vw,48px)",
-                  fontWeight: 400,
-                  letterSpacing: "-0.025em",
-                  color: B.primary,
-                }}
-              >
-                Message sent.
-              </DialogTitle>
-              <DialogDescription
-                style={{
-                  color: B.inkSoft,
-                  fontSize: 15,
-                  lineHeight: 1.7,
-                  maxWidth: 620,
-                }}
-              >
-                Thanks for reaching out. If you want to continue straight into a call, pick a time below.
-              </DialogDescription>
-            </DialogHeader>
-            <CalInline
-              style={{
-                marginTop: 22,
-                borderRadius: 18,
-                overflow: "hidden",
-                background: B.white,
-                minHeight: "min(70vh, 760px)",
-              }}
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
-
       {/* FOOTER */}
       <footer style={{ padding: "26px 8vw", background: B.primaryDark, display: "flex", alignItems: isTablet ? "flex-start" : "center", justifyContent: "space-between", flexWrap: "wrap", flexDirection: isTablet ? "column" : "row", gap: 14 }}>
         <div style={{ display: "flex", alignItems: isMobile ? "flex-start" : "center", gap: 24, flexWrap: "wrap", flexDirection: isMobile ? "column" : "row" }}>
-          <span style={{ fontSize: 13, color: "rgba(255,255,255,0.32)", letterSpacing: "0.04em" }}>© 2026 AIFANTRY</span>
+          <span style={{ fontSize: 13, color: "rgba(255,255,255,0.32)", letterSpacing: "0.04em" }}>© 2026 Abrar Ahmed</span>
           <a href={`tel:${US_PHONE_TEL}`} style={{ textDecoration: "none" }}
             onMouseEnter={(e) => e.currentTarget.querySelector("span").style.color = B.white}
             onMouseLeave={(e) => e.currentTarget.querySelector("span").style.color = "rgba(255,255,255,0.75)"}
@@ -1246,20 +1184,17 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
         </div>
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap", width: isMobile ? "100%" : "auto" }}>
           {[
-            { label: "Privacy", href: "https://aifantry.com/privacy" },
-            { label: "Terms",   href: "https://aifantry.com/terms" },
+            { label: "Selected work", href: "/work" },
+            { label: "Contact", href: "#contact" },
           ].map((l) => (
-            <a
+            <Link
               key={l.label}
               href={l.href}
               style={{ fontSize: 13, color: "rgba(255,255,255,0.32)", textDecoration: "none", letterSpacing: "0.06em" }}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
-          <CalButton style={{ fontSize: 13, color: "rgba(255,255,255,0.32)", textDecoration: "none", letterSpacing: "0.06em", background: "none", border: "none", cursor: "pointer", padding: 0 }}>
-            Book a Call
-          </CalButton>
         </div>
       </footer>
     </div>
