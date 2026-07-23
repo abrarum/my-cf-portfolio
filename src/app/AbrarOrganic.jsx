@@ -21,9 +21,10 @@ const B = {
 }
 
 const SERIF = "Georgia, 'Palatino Linotype', serif"
-const WHATSAPP_US_NUMBER = "16507708841"
 const US_PHONE_TEL = "+16507708841"
 const US_PHONE_DISPLAY = "+1 (650)-770-8841"
+const DE_PHONE_TEL = "+4917642030519"
+const DE_PHONE_DISPLAY = "017642030519"
 const FEATURED_REVIEW_PREVIEW_LENGTH = 800
 const GRID_REVIEW_PREVIEW_LENGTH = 400
 
@@ -379,7 +380,7 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
             </FadeIn>
           </div>
 
-          {/* Right - engineering lens */}
+          {/* Right - video */}
           <FadeIn delay={0.18} style={{ order: isTablet ? 1 : 2 }}>
             <div style={{ position: "relative" }}>
               <div
@@ -392,98 +393,14 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
                 }}
               />
 
-              <div
-                style={{
-                  position: "relative",
-                  borderRadius: 24,
-                  overflow: "hidden",
-                  background: B.ink,
-                  boxShadow: "0 28px 70px rgba(102,0,51,0.18), 0 6px 18px rgba(0,0,0,0.09)",
-                  padding: "clamp(28px,4vw,48px)",
-                }}
-              >
-                <div
-                  aria-hidden="true"
-                  style={{
-                    position: "absolute",
-                    width: "70%",
-                    aspectRatio: "1",
-                    top: "-38%",
-                    right: "-24%",
-                    borderRadius: "50%",
-                    background: `radial-gradient(circle, ${B.primary}80 0%, transparent 68%)`,
-                  }}
+              <div style={{ position: "relative", paddingBottom: "56.25%", borderRadius: 20, overflow: "hidden", boxShadow: "0 28px 70px rgba(102,0,51,0.18), 0 6px 18px rgba(0,0,0,0.09)" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/Iwu7pIEBjW8?rel=0&modestbranding=1"
+                  title="From Idea to Revenue: AI Architecture and Strategy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
                 />
-                <p style={{ position: "relative", fontSize: 10, letterSpacing: "0.24em", textTransform: "uppercase", color: B.gold, fontWeight: 700, marginBottom: 18 }}>
-                  Engineering lens
-                </p>
-                <h2 style={{ position: "relative", fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(24px,2.6vw,38px)", lineHeight: 1.14, color: B.white, letterSpacing: "-0.02em", marginBottom: "clamp(28px,3.5vw,42px)", maxWidth: 430 }}>
-                  Good systems make the difficult parts visible.
-                </h2>
-
-                <div style={{ position: "relative", display: "grid", gap: 0 }}>
-                  {[
-                    {
-                      no: "01",
-                      title: "Clarify the constraint",
-                      desc: "Turn an ambiguous requirement into a testable system boundary.",
-                    },
-                    {
-                      no: "02",
-                      title: "Choose deliberately",
-                      desc: "Make trade-offs explicit across reliability, speed, and maintainability.",
-                    },
-                    {
-                      no: "03",
-                      title: "Prove the outcome",
-                      desc: "Ship working software, observe it, and let evidence guide the next decision.",
-                    },
-                  ].map((item, index) => (
-                    <div
-                      key={item.no}
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "36px 1fr",
-                        gap: 14,
-                        padding: "clamp(15px,2vw,21px) 0",
-                        borderTop: index === 0 ? "1px solid rgba(255,255,255,0.16)" : "none",
-                        borderBottom: "1px solid rgba(255,255,255,0.16)",
-                      }}
-                    >
-                      <span style={{ color: B.gold, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", paddingTop: 3 }}>
-                        {item.no}
-                      </span>
-                      <div>
-                        <h3 style={{ color: B.white, fontSize: 14, fontWeight: 700, marginBottom: 5, letterSpacing: "0.01em" }}>
-                          {item.title}
-                        </h3>
-                        <p style={{ color: "rgba(255,255,255,0.62)", fontSize: 13, lineHeight: 1.55 }}>
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div style={{ position: "relative", display: "flex", flexWrap: "wrap", gap: 8, marginTop: 24 }}>
-                  {["AI systems", "Full-stack products", "Architecture"].map((label) => (
-                    <span
-                      key={label}
-                      style={{
-                        border: "1px solid rgba(255,255,255,0.14)",
-                        borderRadius: 50,
-                        color: "rgba(255,255,255,0.68)",
-                        fontSize: 10,
-                        fontWeight: 600,
-                        letterSpacing: "0.08em",
-                        padding: "7px 11px",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {label}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </FadeIn>
@@ -1178,23 +1095,9 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
             <h2 style={{ fontFamily: SERIF, fontSize: "clamp(32px,4.8vw,62px)", fontWeight: 400, letterSpacing: "-0.022em", lineHeight: 1.1, color: B.white, marginBottom: "clamp(16px,2.2vw,26px)" }}>
               Ready to build{" "}<em style={{ color: B.gold, fontStyle: "italic" }}>something real?</em>
             </h2>
-            <p style={{ fontSize: "clamp(14px,1.35vw,17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.72)", marginBottom: "clamp(22px,3.2vw,36px)", maxWidth: 400 }}>
-              Message me directly on WhatsApp. We&apos;ll figure out whether I&apos;m the right fit for what you need - and if not, I&apos;ll point you somewhere better.
+            <p style={{ fontSize: "clamp(14px,1.35vw,17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.72)", marginBottom: "clamp(32px,4.5vw,54px)", maxWidth: 400 }}>
+              Send me a note about the problem you&apos;re solving. We&apos;ll figure out whether I&apos;m the right fit for what you need - and if not, I&apos;ll point you somewhere better.
             </p>
-            <a
-              href={`https://wa.me/${WHATSAPP_US_NUMBER}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Send a WhatsApp message to ${US_PHONE_DISPLAY}`}
-              style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "#25D366", color: B.white, padding: "15px 28px", borderRadius: 50, fontSize: 15, fontWeight: 700, textDecoration: "none", letterSpacing: "0.04em", marginBottom: "clamp(32px,4.5vw,54px)", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease", border: "none", cursor: "pointer" }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(37,211,102,0.35)"; e.currentTarget.style.background = "#1fba59" }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.background = "#25D366" }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ flexShrink: 0 }}>
-                <path d="M19.11 4.93A9.82 9.82 0 0 0 12.06 2C6.65 2 2.23 6.42 2.23 11.83c0 1.74.45 3.43 1.3 4.92L2 22l5.4-1.51a9.77 9.77 0 0 0 4.67 1.19c5.41 0 9.83-4.42 9.83-9.83 0-2.63-1.02-5.1-2.79-6.92Zm-7.05 15.12a8.11 8.11 0 0 1-4.15-1.14l-.3-.18-3.2.9.86-3.12-.2-.32a8.14 8.14 0 0 1-1.25-4.35c0-4.5 3.67-8.17 8.19-8.17a8.1 8.1 0 0 1 5.79 2.39 8.14 8.14 0 0 1 2.39 5.8c0 4.51-3.68 8.18-8.18 8.18Zm4.48-6.11c-.24-.12-1.41-.7-1.63-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.7-.63-1.18-1.41-1.32-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.42-.55-.43-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02 0 1.18.87 2.32.99 2.48.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.15 1.53.09.47-.07 1.41-.58 1.61-1.14.2-.56.2-1.05.14-1.14-.06-.1-.22-.16-.46-.28Z" />
-              </svg>
-              Send Message on WhatsApp
-            </a>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
                 "✓  100+ clients served",
@@ -1229,7 +1132,7 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
                   <Field label="Email" type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@example.com" />
                   <Field label="What are you building?" name="message" value={form.message} onChange={handleChange} placeholder="Tell me about your project…" multiline />
                   {formStatus === "error" && (
-                    <p style={{ color: B.gold, fontSize: 13 }}>Something went wrong. Message me on WhatsApp directly.</p>
+                    <p style={{ color: B.gold, fontSize: 13 }}>Something went wrong. Please try again or call me directly.</p>
                   )}
                   <button
                     type="submit"
@@ -1258,12 +1161,12 @@ export default function AbrarOrganic({ featuredCaseStudies }) {
             <span style={{ display: "block", fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 2 }}>USA</span>
             <span style={{ display: "block", fontSize: 16, fontWeight: 600, color: "rgba(255,255,255,0.75)", letterSpacing: "0.02em", transition: "color 0.2s" }}>{US_PHONE_DISPLAY}</span>
           </a>
-          <a href="tel:+498941112866" style={{ textDecoration: "none" }}
+          <a href={`tel:${DE_PHONE_TEL}`} style={{ textDecoration: "none" }}
             onMouseEnter={(e) => e.currentTarget.querySelector("span").style.color = B.white}
             onMouseLeave={(e) => e.currentTarget.querySelector("span").style.color = "rgba(255,255,255,0.75)"}
           >
             <span style={{ display: "block", fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 2 }}>Germany</span>
-            <span style={{ display: "block", fontSize: 16, fontWeight: 600, color: "rgba(255,255,255,0.75)", letterSpacing: "0.02em", transition: "color 0.2s" }}>+49 89 41112866</span>
+            <span style={{ display: "block", fontSize: 16, fontWeight: 600, color: "rgba(255,255,255,0.75)", letterSpacing: "0.02em", transition: "color 0.2s" }}>{DE_PHONE_DISPLAY}</span>
           </a>
         </div>
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap", width: isMobile ? "100%" : "auto" }}>
