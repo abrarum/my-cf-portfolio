@@ -1,0 +1,29 @@
+{
+  "name": "my-cf-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.7",
+    "framer-motion": "^12.6.2",
+    "lucide-react": "^0.485.0",
+    "next": "^16.2.11",
+    "nodemailer": "^9.0.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.2.11"
+  },
+  "overrides": {
+    "postcss": "^8.5.10",
+    "sharp": "^0.35.3"
+  }
+}
