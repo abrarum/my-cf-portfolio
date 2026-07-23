@@ -1,4 +1,4 @@
-export const WORK = [
+const WORK_ITEMS = [
   {
     slug: "krafted-ai-shopify-app",
     title: "Krafted: an AI product page generator for Shopify",
@@ -814,6 +814,25 @@ export const WORK = [
       "The prototype worked because it made the organisational bottleneck visible. A shared content model became a coordination system for design, editorial, and engineering, not only a CMS schema.",
   },
 ]
+
+const WORK_PRIORITY = [
+  "krafted-ai-shopify-app",
+  "mintfit-ai-coaching",
+  "curvetrace-bezier-detection",
+  "sandoz-global-web-platform",
+  "bsi-incident-reporting-platform",
+]
+
+const priorityBySlug = new Map(
+  WORK_PRIORITY.map((slug, index) => [slug, index])
+)
+
+export const WORK = [...WORK_ITEMS].sort((left, right) => {
+  const leftPriority = priorityBySlug.get(left.slug) ?? Number.MAX_SAFE_INTEGER
+  const rightPriority = priorityBySlug.get(right.slug) ?? Number.MAX_SAFE_INTEGER
+
+  return leftPriority - rightPriority
+})
 
 export function getWorkBySlug(slug) {
   return WORK.find((study) => study.slug === slug)
