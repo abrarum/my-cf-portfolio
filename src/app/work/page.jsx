@@ -28,7 +28,7 @@ export default function WorkPage() {
         </section>
 
         <section className="work-index-grid" aria-label="Case studies">
-          {WORK.map((study) => (
+          {WORK.map((study, index) => (
             <article className="work-index-card" key={study.slug}>
               <Link
                 className="work-index-image"
@@ -39,6 +39,7 @@ export default function WorkPage() {
                   src={study.featuredImageUrl}
                   alt={study.featuredImageAlt}
                   fill
+                  priority={index === 0}
                   sizes="(max-width: 900px) 92vw, 44vw"
                   unoptimized
                 />
